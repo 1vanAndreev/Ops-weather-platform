@@ -1,0 +1,22 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ops-weather-platform:local
+    container_name: ops-weather-platform-api
+    environment:
+      APP_ENV: local
+      LOG_LEVEL: INFO
+      PROVIDER_MODE: mock
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+

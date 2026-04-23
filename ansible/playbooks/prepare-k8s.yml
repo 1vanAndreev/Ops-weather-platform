@@ -1,0 +1,8 @@
+- name: Prepare Linux hosts for Kubernetes with CRI-O
+  hosts: k8s_cluster
+  become: true
+  roles:
+    - k8s_prereqs
+    - crio
+    - k8s_packages
+

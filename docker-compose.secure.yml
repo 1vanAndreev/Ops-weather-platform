@@ -1,0 +1,21 @@
+services:
+  api:
+    image: registry.example.com/platform/ops-weather-platform:${APP_VERSION:-latest}
+    environment:
+      APP_ENV: production
+      LOG_LEVEL: INFO
+      PROVIDER_MODE: mock
+    ports:
+      - "8000:8000"
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,noexec,nosuid,nodev
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 128
+    mem_limit: 256m
+    cpus: "0.50"
+    restart: unless-stopped
+

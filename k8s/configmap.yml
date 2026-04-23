@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ops-weather-config
+  namespace: ops-weather
+data:
+  APP_ENV: "staging"
+  LOG_LEVEL: "INFO"
+  PROVIDER_MODE: "mock"
+
